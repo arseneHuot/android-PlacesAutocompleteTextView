@@ -193,6 +193,9 @@ public class PlacesApi {
             uriBuilder.appendQueryParameter(PARAMETER_COMPONENT, "country:"+countryCode.toUpperCase());
         }
 
+        uriBuilder.appendQueryParameter("fields", "name,formatted_address");
+
+
         return httpClient.executeAutocompleteRequest(uriBuilder.build());
     }
 
@@ -215,6 +218,7 @@ public class PlacesApi {
             uriBuilder.appendQueryParameter(PARAMETER_LANGUAGE, languageCode);
         }
 
+        uriBuilder.appendQueryParameter("fields", "name,formatted_address,address_component,geometry");
 
         return httpClient.executeDetailsRequest(uriBuilder.build());
     }
